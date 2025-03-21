@@ -10,7 +10,7 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      theme: 'github-light',
+      theme: 'gruvbox-light-soft',
     },
   },
   site: "https://example.com",
