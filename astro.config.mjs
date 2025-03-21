@@ -10,10 +10,10 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      theme: 'dracula',
+      theme: 'solarized-light',
     },
   },
-  
+
   site: "https://example.com",
   integrations: [mdx(), sitemap()],
   adapter: cloudflare({
