@@ -13,6 +13,7 @@ export default defineConfig({
       theme: 'dracula',
     },
   },
+  
   site: "https://example.com",
   integrations: [mdx(), sitemap()],
   adapter: cloudflare({
