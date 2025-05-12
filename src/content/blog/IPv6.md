@@ -54,7 +54,7 @@ netsh interface ipv6 set global randomizeidentifiers=disable
 |:-|:-|:-|:-|:-|
 |静态|手动|手动|手动|
 |SLAAC|RS和RA|RS和RA|无|M=0、O=0|
-|Stateful DHCPv6|DHCPv6|DHCPv6|DHCPv6|M=1|
+|Stateful DHCPv6|DHCPv6|RS和RA|DHCPv6|M=1|
 |Stateless DHCPv6|RS和RA|RS和RA|DHCPv6|M=0、O=1|
 
 注：M=0 地址前缀和网关是无状态获得，M=1DHCP获得
