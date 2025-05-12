@@ -110,6 +110,7 @@ dis dhcpv6 duid 判断设备是否支持 DHCPV6 服务端
 
 ## DHCPv6配置
 ~~~
+dhcp en
 dhcpv6 pool serverpool
 address prefix 2400:1234::/64
 excluded-address 2400：1234::1 to 2400：1234::9 
@@ -119,11 +120,59 @@ dns-server 2000::5
 ~~~
 int g0/0/1
 dhcpv6 server serverpool
-undo ipv6 nd ra halt
 ipv6 nd auto m 
+undo ipv6 nd ra halt
 ~~~
 查看已分配地址
 dhcpv6 pool serverpool binding
 
 ## IPv6路由
 IETF组织针对IPv6网络定制了两种路由协议RIPng和OSPFv3
+
+~~~bash
+dis ipv6 routing-table 
+~~~
+只看静态路由
+~~~bash
+dis ipv6 routing-table protocol static
+~~~
+查看FIB表
+~~~bash
+dis ipv6 fib
+~~~
+### 静态路由
+### RIPng
+~~~bash
+RIPng 1
+int g0/0/0 
+ripng enable
+~~~
+查看ripng
+~~~bash
+dis ipv6 routing-table protocol ripng
+~~~
+### OSPFv3
+OSPFv3 需要手动配置 Router-Id
+OSPF 会自动选取
+~~~bash
+ospfv3 1 area 0
+router-id 2.2.2.2
+~~~
+接口视图
+~~~
+int g0/0/1
+ospfv3 1 area 0
+~~~
+查看
+~~~bash
+dis ospfv3 int
+~~~
+查看邻居
+~~~
+dis ospfv3 peer
+~~~
+查看路由表
+dis ospfv3 routing
+
+前缀列表？
+ip ipv6-prefix poolserver permit
