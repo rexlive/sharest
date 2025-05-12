@@ -119,6 +119,11 @@ dns-server 2000::5
 ~~~
 int g0/0/1
 dhcpv6 server serverpool
+undo ipv6 nd ra halt
+ipv6 nd auto m 
 ~~~
 查看已分配地址
 dhcpv6 pool serverpool binding
+
+## IPv6路由
+IETF组织针对IPv6网络定制了两种路由协议RIPng和OSPFv3
